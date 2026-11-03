@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10251f">
+  <title>Dealership Desk</title>
+  <link rel="stylesheet" href="{% static 'dealerships/app.css' %}">
+</head>
+<body>
+  <main id="auth-view" class="auth-shell">
+    <section class="auth-brand">
+      <div class="brand-mark">D</div>
+      <p class="eyebrow">DEALERSHIP DESK</p>
+      <h1>Keep the whole<br>business in view.</h1>
+      <p class="brand-copy">Stock, sales, purchases and customer balances in one clear workspace.</p>
+      <div class="auth-foot">Built for the way local businesses work.</div>
+    </section>
+    <section class="auth-card">
+      <div class="auth-heading"><p class="eyebrow" id="auth-eyebrow">WELCOME BACK</p><h2 id="auth-title">Sign in</h2><p id="auth-description">Enter your account details to continue.</p></div>
+      <form id="auth-form" class="stack">
+        <div id="signup-fields" class="stack hidden">
+          <label>Dealership name<input name="business_name" autocomplete="organization" required></label>
+          <label>Your name / username<input name="username" autocomplete="username" required minlength="3"></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Password<input name="password" type="password" autocomplete="new-password" required minlength="8"></label>
+        </div>
+        <div id="login-fields" class="stack">
+          <label>Username<input name="login_username" autocomplete="username" required></label>
+          <label>Password<input name="login_password" type="password" autocomplete="current-password" required></label>
+        </div>
+        <button class="button primary wide" id="auth-submit" type="submit">Sign in</button>
+      </form>
+      <p class="auth-switch"><span id="switch-copy">New to Dealership Desk?</span> <button class="text-button" id="auth-switch" type="button">Create an account</button></p>
+      <p class="form-error" id="auth-error" role="alert"></p>
+    </section>
+  </main>
+
+  <div id="app-view" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="sidebar-brand" href="#"><span class="brand-mark small">D</span><span>Dealership<br><b>Desk</b></span></a>
+      <div class="business-picker"><span class="eyebrow">WORKSPACE</span><strong id="business-name">Your dealership</strong><small id="business-location">Main location</small></div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="overview"><span>◫</span> Overview</button>
+        <button class="nav-item" data-page="products"><span>▦</span> Products & stock</button>
+        <button class="nav-item" data-page="sales"><span>↗</span> Sales</button>
+        <button class="nav-item" data-page="purchases"><span>↙</span> Purchases</button>
+        <button class="nav-item" data-page="contacts"><span>♙</span> Customers & suppliers</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="profile"><span class="avatar" id="user-avatar">U</span><div><strong id="user-name">User</strong><small>Dealership team</small></div></div><button class="logout-button" id="logout-button">Sign out</button></div>
+    </aside>
+    <section class="main-panel">
+      <header class="topbar"><div><span class="eyebrow" id="page-kicker">YOUR BUSINESS</span><h1 id="page-title">Overview</h1></div><div class="top-actions"><span class="today-label" id="today-label"></span><button class="button primary" id="quick-sale">＋ New sale</button></div></header>
+      <div id="notice" class="notice hidden" role="status"></div>
+      <section id="page-content" class="page-content"></section>
+    </section>
+  </div>
+  <script type="module" src="{% static 'dealerships/app.js' %}"></script>
+</body>
+</html>
